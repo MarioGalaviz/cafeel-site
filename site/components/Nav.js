@@ -25,9 +25,12 @@ function Nav(props) {
                     <Typography variant="h4" sx={{ my: 2.7 }} style={{ fontWeight: 550 }} onClick={() => router.push('/')}>
                         Cafeel
                     </Typography>
-                    <Typography variant="h5" style={{ textDecoration: 'underline' }} >
-                        iniciar
-                    </Typography>
+                    <a href="https://app.cafeel.mx/cafeteria/login">
+                        <Typography variant="h5" style={{ textDecoration: 'underline' }}>
+                            iniciar
+                        </Typography>
+                    </a>
+                    
                 </Box>
                 
                 <Menu

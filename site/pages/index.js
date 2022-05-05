@@ -42,7 +42,9 @@ const sectionStyle = {
             <Box height='40vh' display='flex' alignItems='center'  justifyContent='center' flexWrap='wrap'>
                 
                 <Box sx={{ display: 'flex',justifyContent: 'center', flexWrap: 'wrap'}}>
-                    <Button sx={{ m: 1 }} size='large' variant="contained" color='secondary' style={{minWidth: '40%'}}>Registrarme</Button>          
+                    <a href="https://app.cafeel.mx/cafeteria/signin">
+                        <Button sx={{ m: 1 }} size='large' variant="contained" color='secondary' style={{minWidth: '40%'}}>Registrarme</Button>          
+                    </a>
                 </Box>
             </Box>
         </Box>
