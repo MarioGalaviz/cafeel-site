@@ -4,6 +4,7 @@
 /site/node_modules
 /site/.pnp
 .pnp.js
+/api/node_modules
 
 # testing
 /site/coverage
@@ -30,3 +31,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# BD en dev
+/dev_dbdata

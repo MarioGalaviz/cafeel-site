@@ -1,0 +1,78 @@
+version: '3'
+services:
+    nginx:
+        container_name: cafeel-site-nginx-1
+        restart: always
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        ports:
+            - '3050:80'
+        depends_on:
+            - site
+            - api
+        networks:
+            - postgres
+        logging:
+            driver: none
+    site:
+        container_name: cafeel-site-1
+        stdin_open: true
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./site
+        volumes:
+            - /app/node_modules
+            - ./site:/app
+        networks:
+            - postgres
+    postgres:
+        container_name: cafeel-site-postgres-1
+        image: 'postgres:latest'
+        environment:
+            - POSTGRES_PASSWORD=postgres_password
+        volumes:
+            - ./dev_dbdata:/var/lib/postgresql/data
+        networks:
+            - postgres
+        logging:
+            driver: none
+    pgadmin:
+        container_name: cafeel-site-pgadmin-1
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: mga.375@gmail.com
+            PGADMIN_DEFAULT_PASSWORD: postgres_password
+        ports:
+            - "5050:80"
+        networks:
+            - postgres
+        logging:
+            driver: none
+    api:
+        container_name: cafeel-site-api-1
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./api
+        volumes:
+            - /app/node_modules
+            - ./api:/app
+        environment:
+            - PGUSER=postgres
+            - PGHOST=cafeel-site-postgres-1
+            - PGDATABASE=postgres
+            - PGPASSWORD=postgres_password
+            - PGPORT=5432
+            - REDISHOST=cafeel-redis-1
+            - REDISPORT=6379
+        depends_on:
+            - postgres
+        networks:
+            - postgres
+networks:
+    postgres:
+        driver: bridge
+    
+    
+
+
