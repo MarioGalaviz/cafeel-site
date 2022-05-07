@@ -89,10 +89,10 @@ const MenuCafeteria = () => {
             <Box style={{ minHeight: '50vh' }} sx={{ pt: 2, pb: 6 }}>
                 <Grid container justifyContent='center'>
                     {categorias.map(categoria => (
-                        <Grid item xs={10}>
+                        <Grid item xs={10} key={categoria.id_categoria}>
                             <Typography variant='h3' align='center' sx={{ my: 3 }}>{categoria.categoria}</Typography>
                             {productos.filter(producto => producto.id_categoria === categoria.id_categoria).map(producto => (
-                                <Box display='flex' justifyContent='center' width='100%' sx={{ my: 1.5 }} flexWrap='wrap'>
+                                <Box display='flex' justifyContent='center' width='100%' sx={{ my: 1.5 }} flexWrap='wrap' key={producto.id_producto}>
                                     <Box display='flex' justifyContent='space-between' width='50%' minWidth='300px'>
                                         <Typography variant='h5' align='center'>{producto.producto}</Typography>
                                         <Typography variant='h5' align='center'>{producto.tamano ? '' : `$${producto.costo/100}`}</Typography>
@@ -100,7 +100,7 @@ const MenuCafeteria = () => {
                                     </Box>
                                     {producto.tamano &&
                                         tamanos.filter(tamano => tamano.id_producto === producto.id_producto).map(tamano => (
-                                            <Box display='flex' justifyContent='space-between' width='50%' minWidth='300px'>
+                                            <Box display='flex' justifyContent='space-between' width='50%' minWidth='300px' key={tamano.id_tamano}>
                                                 <Typography variant='h5' align='center' sx={{ ml: 4 }}>- {tamano.tamano}</Typography>
                                                 <Typography variant='h5' align='center'>{`$${tamano.costo/100}`}</Typography>
                                             </Box>
