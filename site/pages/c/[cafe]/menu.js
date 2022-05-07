@@ -29,6 +29,8 @@ const MenuCafeteria = () => {
 
 
         const fetchMenu = async () => {
+            const arrPath = window.location.href.split('/')
+            const nombreCafe = arrPath[arrPath.length - 2] 
         
             const data = await fetch('/api/cafes/info'
             , {
@@ -37,7 +39,7 @@ const MenuCafeteria = () => {
                     'Content-Type': 'application/json'
                 },
                 method: 'POST',
-                body: JSON.stringify({ nombre: cafe })
+                body: JSON.stringify({ nombre: nombreCafe })
             }
             )
             const dataa = await data.json()
@@ -98,6 +100,7 @@ const MenuCafeteria = () => {
                                         <Typography variant='h5' align='center'>{producto.tamano ? '' : `$${producto.costo/100}`}</Typography>
                                         
                                     </Box>
+                                    <Box width='100%'/>
                                     {producto.tamano &&
                                         tamanos.filter(tamano => tamano.id_producto === producto.id_producto).map(tamano => (
                                             <Box display='flex' justifyContent='space-between' width='50%' minWidth='300px' key={tamano.id_tamano}>
