@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cafeel-site-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      api: cafeelsite
+  template:
+    metadata:
+      labels:
+        api: cafeelsite
+    spec:
+      containers:
+        - name: api
+          image: mariogalaviz/cafeel-site-api
+          ports:
+          - containerPort: 3002
+          env:
+          - name: REDISHOST
+            value: redis-cluster-ip-service
+          - name: REDISPORT
+            value: '6379'
+          - name: PGUSER
+            value: postgres
+          - name: PGHOST
+            value: postgres-cluster-ip-service
+          - name: PGPORT
+            value: '5432'
+          - name: PGDATABASE
+            value: postgres
+          - name: PGPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: pgpassword
+                key: PGPASSWORD
