@@ -22,11 +22,6 @@ export default function Home() {
         minHeight: '100vh'
     }
 
-    const handleClick = () => {
-        console.log('hi')
-        router.push('/c/cafeel')
-    }
-
     return (
         <div>
             <Head>
@@ -39,7 +34,7 @@ export default function Home() {
             <Nav />
         
 
-            <Box style={sectionStyle} onClick={handleClick}>
+            <Box style={sectionStyle}>
                 <Image style={{ zIndex: 0, opacity: '30%' }} src={granos} layout="fill" objectFit="cover"/>
                 <Box height='37vh' />
                 

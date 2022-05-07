@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Divider, Grid, IconButton, Typography } from '@mui/material'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Nav from '../../../components/Nav'
@@ -18,6 +18,7 @@ const MenuCafeteria = () => {
     const [categorias, setCategorias] = useState([])
     const [productos, setProductos] = useState([])
     const [tamanos, setTamanos] = useState([])
+    const [prodExpandido, setProdExpandido] = useState('')
 
     const sectionStyle = {
         
@@ -67,6 +68,15 @@ const MenuCafeteria = () => {
    
     }, [])
 
+    const handleClickExpandir = (id) => {
+        if (id === prodExpandido) {
+            setProdExpandido(null)
+        } else {
+            setProdExpandido(id)
+        }
+        
+    }
+
     return (
         <div>
             <Head>
@@ -95,20 +105,20 @@ const MenuCafeteria = () => {
                             <Typography variant='h3' align='center' sx={{ my: 3 }}>{categoria.categoria}</Typography>
                             {productos.filter(producto => producto.id_categoria === categoria.id_categoria).map(producto => (
                                 <Box display='flex' justifyContent='center' width='100%' sx={{ my: 1.5 }} flexWrap='wrap' key={producto.id_producto}>
-                                    <Box display='flex' justifyContent='space-between' width='50%' minWidth='300px'>
+                                    <Box display='flex' justifyContent='space-between' width='52%' minWidth='300px'>
                                         <Typography variant='h5' align='center'>{producto.producto}</Typography>
-                                        <Typography variant='h5' align='center'>{producto.tamano ? '' : `$${producto.costo/100}`}</Typography>
+                                        <Typography variant='h5' align='center'>{producto.tamano ? <ExpandMoreIcon onClick={() => handleClickExpandir(producto.id_producto)}/> : `$${producto.costo/100}`}</Typography>
                                         
                                     </Box>
                                     <Box width='100%'/>
-                                    {producto.tamano &&
+                                    {(producto.tamano && producto.id_producto === prodExpandido) &&
                                         tamanos.filter(tamano => tamano.id_producto === producto.id_producto).map(tamano => (
-                                            <Box display='flex' justifyContent='space-between' width='50%' minWidth='300px' key={tamano.id_tamano}>
+                                            <Box display='flex' justifyContent='space-between' width='52%' minWidth='300px' key={tamano.id_tamano} sx={{ my: .8 }}>
                                                 <Typography variant='h5' align='center' sx={{ ml: 4 }}>- {tamano.tamano}</Typography>
                                                 <Typography variant='h5' align='center'>{`$${tamano.costo/100}`}</Typography>
                                             </Box>
                                         ))
-                                        }
+                                    }
                                 </Box>
                                 
                                 
