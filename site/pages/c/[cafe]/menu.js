@@ -5,7 +5,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Nav from '../../../components/Nav'
+import NavNegocio from '../../../components/NavNegocio';
 import granos from '../../../components/media/pexels-jessica-lewis-creative-606545.webp'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline';
 
 const MenuCafeteria = () => {
     
@@ -19,6 +22,7 @@ const MenuCafeteria = () => {
     const [productos, setProductos] = useState([])
     const [tamanos, setTamanos] = useState([])
     const [prodExpandido, setProdExpandido] = useState('')
+    const [nombreCafe, setNombreCafe] = useState('')
 
     const sectionStyle = {
         
@@ -26,12 +30,38 @@ const MenuCafeteria = () => {
         minHeight: '50vh'
     }
 
-    useEffect(() => {
+    const theme =  createTheme({
+        palette: {
+            type: 'light',
+            primary: {
+                main: '#9cc9fa',
+            },
+            secondary: {
+                main: '#37545d',
+            },
+            background: {
+                default: '#e5f2fe',
+                paper: '#c1defc',
+            },
+        },
+        typography: {
+            fontFamily: '"Lato", "Helvetica", "Arial", sans-serif',
+            h1: {
+                fontWeight: 500,
+            },
+        },
+    })
+    
 
+
+    useEffect(() => {
+        
+        const arrPath = window.location.href.split('/')
+        setNombreCafe(arrPath[arrPath.length - 2]) 
+        const nombreCafeUseEffect = arrPath[arrPath.length - 2]
 
         const fetchMenu = async () => {
-            const arrPath = window.location.href.split('/')
-            const nombreCafe = arrPath[arrPath.length - 2] 
+            
         
             const data = await fetch('/api/cafes/info'
             , {
@@ -40,7 +70,7 @@ const MenuCafeteria = () => {
                     'Content-Type': 'application/json'
                 },
                 method: 'POST',
-                body: JSON.stringify({ nombre: nombreCafe })
+                body: JSON.stringify({ nombre: nombreCafeUseEffect })
             }
             )
             const dataa = await data.json()
@@ -79,20 +109,23 @@ const MenuCafeteria = () => {
 
     return (
         <div>
+            <ThemeProvider theme={theme}>
+            <CssBaseline />
+
             <Head>
-                <title>{cafe ? ('Menú de ' + cafe.charAt(0).toUpperCase() + cafe.slice(1) + ' ') : ''}(by Cafeel)</title>
-                <meta name="description" content={`Menú de la cafetería ${cafe} generado por Cafeel`} />
+                <title>{cafe ? ('Menú de ' + cafe.charAt(0).toUpperCase() + cafe.slice(1) + ' ') : 'Menú '}(by Cafeel)</title>
+                <meta name="description" content={`Menú de la cafetería generado por Cafeel`} />
                 <link rel="icon" href="/favicon.ico" />
                 
             </Head>
-            <Nav sinIniciar={true}/>
+            <NavNegocio nombre={infoCafe.nombre} nombreRuta={nombreCafe}/>
             <Box style={sectionStyle} sx={{ backgroundColor: 'background.paper' }}>
                 
                 <Box height='18vh' />
                 
                 <Box height='25vh' display='flex' alignItems='center'  justifyContent='center' flexWrap='wrap'>
                     <Box width='80%'>
-                        <Typography variant='h3' align='center'>{infoCafe.nombre}: menú</Typography>
+                        <Typography variant='h3' align='center'>Menú</Typography>
                     </Box>
                 </Box>
             
@@ -106,7 +139,7 @@ const MenuCafeteria = () => {
                             {productos.filter(producto => producto.id_categoria === categoria.id_categoria).map(producto => (
                                 <Box display='flex' justifyContent='center' width='100%' sx={{ my: 1.5 }} flexWrap='wrap' key={producto.id_producto}>
                                     <Box display='flex' justifyContent='space-between' width='52%' minWidth='300px'>
-                                        <Typography variant='h5' align='center'>{producto.producto}</Typography>
+                                        <Typography variant='h5' align='left'>{producto.producto}</Typography>
                                         <Typography variant='h5' align='center'>{producto.tamano ? <ExpandMoreIcon onClick={() => handleClickExpandir(producto.id_producto)}/> : `$${producto.costo/100}`}</Typography>
                                         
                                     </Box>
@@ -128,6 +161,7 @@ const MenuCafeteria = () => {
                     
                 </Grid>
             </Box>
+            </ThemeProvider>
         </div>
     )
 }
