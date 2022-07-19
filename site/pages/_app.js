@@ -18,7 +18,9 @@ function MyApp({ Component, pageProps }) {
             type: 'light',
             primary: {
                 main: '#7E57C2',
-                old: '#8656ac'
+                old: '#8656ac',
+                dark: '#4527a0',
+                darker: '#441979'
             },
             secondary: {
                 main: '#8bb24f',
