@@ -3,24 +3,35 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Box, Button, Card, Grid, Typography } from '@mui/material'
 import Nav from '../components/Nav'
+import NavCool from '../components/NavCool'
 import Footer from '../components/Footer'
-import tacos from '../components/media/tacos-g192d02e58_1920.webp'
+import heroMain from '../components/media/Hero-main.png'
+import heroMain2 from '../components/media/Hero-main-2.png'
+import heroMain3 from '../components/media/Hero-main-3.png'
+import heroComida1 from '../components/media/Hero-comida-1.png'
+import heroComida2 from '../components/media/Hero-comida-2.png'
+import heroTarjeta from '../components/media/Hero-tarjeta.png'
 import granos from '../components/media/pexels-jessica-lewis-creative-606545.webp'
 import { useRouter } from 'next/router'
-
+import { store } from '../redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
+import { useSelector } from 'react-redux'
+import { selectDevice } from '../redux/sliceSesion/sesionSlice'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 export default function Home() {
 
     const router = useRouter()
+    let persistor = persistStore(store);
 
+    const device = useSelector(selectDevice)
 
-    const sectionStyle = {
-        
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: 'center',
-        minHeight: '100vh'
-    }
+    useEffect(() => {
+        Aos.init({ duration: 1200 })
+    }, [])
 
     return (
         <div>
@@ -31,29 +42,81 @@ export default function Home() {
                 
             </Head>
 
-            <Nav />
-        
+            <NavCool />
+            {/* <PersistGate loading={null} persistor={persistor}> */}
+            <Box display='flex' justifyContent='center'>
+                <Box maxWidth='1200px' width='100%'>
+                    <Box display='flex' justifyContent={device > 1 ? 'space-between' : 'center'}  flexWrap='wrap'>
 
-            <Box style={sectionStyle}>
-                <Image style={{ zIndex: 0, opacity: '30%' }} src={granos} layout="fill" objectFit="cover"/>
-                <Box height='37vh' />
-                
-                <Box height='23vh' display='flex' alignItems='center'  justifyContent='center' flexWrap='wrap'>
-                    <Box width='74%'>
-                        <Typography variant='h5' zIndex={1}>Tu cafetería como nunca la habías visto</Typography>
-                    </Box>
-                
-                </Box>
-                <Box height='40vh' display='flex' alignItems='center'  justifyContent='center' flexWrap='wrap'>
                     
-                    <Box sx={{ display: 'flex',justifyContent: 'center', flexWrap: 'wrap'}}>
-                        <a href="https://app.cafeel.mx/cafeteria/signin">
-                            <Button sx={{ m: 1 }} size='large' variant="contained" color='secondary' style={{minWidth: '40%'}}>Registrarme</Button>          
-                        </a>
+                        <Box minHeight={device === 2 ? '90vh' : ''}>
+                            <Box maxWidth={device === 2 ? '600px' : '500px'} sx={{ py: 8}}>
+                                <Grid container justifyContent='center'>
+                                    <Grid item xs={11}>
+                                        <Box>
+                                            <Typography variant={device > 0 ? 'h2' : 'h3'} sx={{ letterSpacing: -2, lineHeight: 1.1  }}>Transforma tu negocio con una <Box fontWeight='bold' display='inline'>poderosa app de administración</Box></Typography>
+                                        </Box>
+                                        <Box sx={{ my: 3 }}>
+                                            <Typography variant='h6' sx={{ letterSpacing: -0.5 }}>Deja de gastar el tiempo con comandas y cuentas a mano. Opera con tecnología que te ayuda a tener el negocio en la palma de tu mano</Typography>
+                                        </Box>
+                                        <Box display='flex' sx={{ mt: 5 }} position='relative'>
+                                        <a href="https://app.cafeel.mx/cafeteria/signin">
+                                            <Button variant='contained' size='large'>Comienza prueba gratuita</Button>
+                                            </a>
+                                            <Box width='160px' position='absolute' zIndex={2} top='5%' left={device  === 2 ? '55%': '65%'} display={device === 0 ? 'none' : ''}>
+                                <Image src={heroTarjeta} layout='intrinsic' />
+                            </Box>
+                            
+                                        </Box>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Box>
+                      
+
+                        <Box display='flex' justifyContent='center' sx={{ py: 2 }}>
+
+                        
+                        <Box maxWidth='500px' width='90%' position='relative' display='flex' flexWrap='wrap'>
+                            <Box display='flex' justifyContent='center' sx={{ my: '10%'}}>
+                                <Box width='80%'>
+                                    <div data-aos='fade-up'>
+                                        <Image src={heroMain} layout='intrinsic' />
+                                    </div>
+                                </Box>
+                            </Box>
+                            <Box width='35%' position='absolute' zindex={4} top='50%' right='5%'>
+                            <div data-aos='fade-up-left'>
+                                <Image src={heroMain2} layout='intrinsic' />
+                                </div>
+                            </Box>
+                            <Box width='60%' sx={{ m: '5%' }}>
+                            <div data-aos='fade-up'>
+                                <Image src={heroMain3} layout='intrinsic' zindex={6}  />
+                                </div>
+                            </Box>
+                            
+                            
+                       
+                            
+                            <Box width='130px' position='absolute' zIndex={2} top='0%' right='2%'>
+                            <div data-aos='zoom-in-left'>
+                                <Image src={heroComida1} layout='intrinsic' />
+                                </div>
+                            </Box>
+                            <Box width='130px' position='absolute' zIndex={2} top='30%' right='80%'>
+                            <div data-aos='zoom-in-right'>
+                                <Image src={heroComida2} layout='intrinsic' />
+                                </div>
+                            </Box>
+                            
+                        </Box>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
-                
+     
+            {/* </PersistGate> */}
             
             <Footer />
     
