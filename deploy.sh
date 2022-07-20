@@ -8,4 +8,4 @@ docker push mariogalaviz/cafeel-site-api:$SHA
 
 kubectl apply -f k8s
 kubectl set image deployments/cafeel-site-deployment site=mariogalaviz/cafeel-site:$SHA 
-kubectl set image deployments/cafeel-site-api-deployment site=mariogalaviz/cafeel-site-api:$SHA 
+kubectl set image deployments/cafeel-site-api-deployment api=mariogalaviz/cafeel-site-api:$SHA 

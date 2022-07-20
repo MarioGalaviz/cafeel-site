@@ -202,7 +202,7 @@ export default function Home() {
             </Box>
             <Box display='flex' justifyContent='center'>
                 <Box maxWidth='1200px' width='100%'>
-                    <Box display='flex' justifyContent={device > 1 ? 'space-around' : 'center'}  flexWrap='wrap' alignItems='center'>
+                    <Box display='flex' justifyContent={device > 1 ? 'space-around' : 'center'}  flexWrap='wrap' alignItems='center' sx={{ pt: 6 }}>
                         <Box minHeight={device === 0 ? '70vh' : '75vh'} maxWidth='300px' height='100%' sx={{ mt: 4 }} display='flex' alignItems='center' position='relative'>
                             
                             <Box width='100%' position='absolute' zIndex={1} top='0%' right='10%'>
@@ -242,7 +242,7 @@ export default function Home() {
                                         </Box>
                                         <Box sx={{ my: 3 }} display='flex'>
                                             <Bullet color={'primary.main'}/>
-                                            <Typography variant='h6' sx={{ mx: 1 }}>Costo mensual entre $100 y $500</Typography>
+                                            <Typography variant='h6' sx={{ mx: 1 }}>Costo mensual entre $100 y $500 MXN ($5 - $25 USD)</Typography>
                                         </Box>
                                         <div data-aos='fade-up'>
                                             <Box display='flex' sx={{ mt: 5 }} alignItems='center' flexWrap='wrap'>
