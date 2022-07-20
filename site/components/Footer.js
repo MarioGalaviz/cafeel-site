@@ -4,13 +4,11 @@ import { Typography, Box, Grid, Card } from '@mui/material';
 import { useRouter } from 'next/router'
 import { FiInstagram } from 'react-icons/fi'
 import logo from '../components/media/logo-cafeel-blanco.png'
-import { useSelector } from "react-redux";
-import { selectDevice } from "../redux/sliceSesion/sesionSlice";
+
 function Footer() {
 
     const router = useRouter()
 
-    const device = useSelector(selectDevice)
 
 
     return (
