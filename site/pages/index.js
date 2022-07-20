@@ -31,6 +31,7 @@ import { RiHandHeartFill } from 'react-icons/ri'
 import { FaCashRegister } from 'react-icons/fa'
 import { GiExpense, GiFullPizza, GiCookingPot, GiNotebook } from 'react-icons/gi'
 import { FiUsers } from 'react-icons/fi'
+import { FiInstagram } from 'react-icons/fi'
 import Bullet from '../components/Bullet'
 
 export default function Home() {
@@ -202,43 +203,6 @@ export default function Home() {
             <Box display='flex' justifyContent='center'>
                 <Box maxWidth='1200px' width='100%'>
                     <Box display='flex' justifyContent={device > 1 ? 'space-around' : 'center'}  flexWrap='wrap' alignItems='center'>
-
-                        {/* <Box display='flex' justifyContent='center' sx={{ py: 2 }} backgroundColor='black'>
-                            <Box maxWidth='500px' width='90%' position='relative' display='flex' flexWrap='wrap' alignItems='center'>
-                                <Box display='flex' justifyContent='center' sx={{ my: '10%'}} alignItems='center' height='100%'>
-                                    <Box width='80%' sx={{opacity: '0.2', color: 'triadic2.main'}}>
-                                        <div data-aos='fade-up' data-aos-easing="zoom-in">
-                                            <GiFullPizza alt='' size={device === 0 ? 200 : 380} />
-                                        </div>
-                                    </Box>
-                                </Box>
-                                <Box width='35%' position='absolute' zindex={4} top='50%' right='5%'>
-                                <div data-aos='fade-up' data-aos-easing="ease-in-sine">
-                                    <Image alt='' src={heroMain2} layout='intrinsic' />
-                                    </div>
-                                </Box>
-                              
-                                
-                        
-                                
-                                <Box width='70%' position='absolute' zIndex={1} top='4%' right='25%'>
-                                    <div data-aos='zoom-in' data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                                        <Image alt='' src={section1} layout='intrinsic' />
-                                    </div>
-                                </Box>
-                                <Box width='28%' position='absolute' zIndex={2} top='0%' right='2%'>
-                            <div data-aos='zoom-in' data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                                <Image alt='' src={heroComida1} layout='intrinsic' />
-                                </div>
-                            </Box>
-                                <Box width='28%' position='absolute' zIndex={2} top='30%' right='80%'>
-                                <div data-aos='zoom-in-right' data-aos-easing="ease-in-sine" data-aos-offset="300" data-aos-duration="1500">
-                                    <Image alt='' src={heroComida2} layout='intrinsic' />
-                                    </div>
-                                </Box>
-                                
-                            </Box>
-                        </Box> */}
                         <Box minHeight={device === 0 ? '70vh' : '75vh'} maxWidth='300px' height='100%' sx={{ mt: 4 }} display='flex' alignItems='center' position='relative'>
                             
                             <Box width='100%' position='absolute' zIndex={1} top='0%' right='10%'>
@@ -281,15 +245,20 @@ export default function Home() {
                                             <Typography variant='h6' sx={{ mx: 1 }}>Costo mensual entre $100 y $500</Typography>
                                         </Box>
                                         <div data-aos='fade-up'>
-                                            <Box display='flex' sx={{ mt: 5 }} alignItems='center'>
-                                                <a href="https://app.cafeel.mx/cafeteria/signin">
-                                                    <Button variant='contained' size='large'>Ver precios</Button>
-                                                </a>
+                                            <Box display='flex' sx={{ mt: 5 }} alignItems='center' flexWrap='wrap'>
+                                                <Button variant='contained' size='large' onClick={() => router.push('/precios')}>Ver precios</Button>
                                                 <a href="https://play.google.com/store/apps/details?id=mx.cafeel.twa">
                                                 <Box width={device === 0 ? '150px' : '160px'} sx={{mt: 1, mx: 2}}>
                                                     <Image alt='' src={googlePlay} layout='intrinsic' />
                                                 </Box>
                                                 </a>
+                                                <Box sx={{ my: 2, color: 'primary.darker' }}>
+                            <a href="https://www.instagram.com/cafeel.mx/">
+                                <Box backgroundColor='background.light' height='90px' width='90px' display='flex' alignItems='center' justifyContent='center' sx={{ borderRadius: '60px'}}>
+                                    <FiInstagram size={40}/>
+                                </Box>
+                            </a>
+                        </Box>
                                             </Box>
                                         </div>
                                     </Grid>
