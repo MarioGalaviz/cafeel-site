@@ -29,6 +29,12 @@ function MyApp({ Component, pageProps }) {
                 light: '#ede7f6',
                 paper: '#d1c4e9',
             },
+            triadic1: {
+                main: '#c2579b'
+            },
+            triadic2: {
+                main: '#c27e57'
+            }
         },
         typography: {
             fontFamily: '"PlusJakartaSans", "Helvetica", "Arial", sans-serif',
