@@ -28,7 +28,7 @@ function NavCool(props) {
                                 Cafeel
                             </Typography> */}
                             <Box width='140px'>
-                                <Image src={logo} layout='intrinsic' />
+                                <Image alt='logo de Cafeel' src={logo} layout='intrinsic' />
                             </Box>
                             
                             {!props.sinIniciar &&

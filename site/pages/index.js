@@ -97,7 +97,7 @@ export default function Home() {
                                                 <Button variant='contained' size='large'>Comienza prueba gratuita</Button>
                                             </a>
                                             <Box width='160px' position='absolute' zIndex={2} top='5%' left={device  === 2 ? '55%': '65%'} display={device === 0 ? 'none' : ''}>
-                                                <Image src={heroTarjeta} layout='intrinsic' />
+                                                <Image alt='' src={heroTarjeta} layout='intrinsic' />
                                             </Box>
                                         </Box>
                                     </Grid>
@@ -114,18 +114,18 @@ export default function Home() {
                             <Box display='flex' justifyContent='center' sx={{ my: '10%'}}>
                                 <Box width='80%'>
                                     <div data-aos='fade-up' data-aos-easing="ease-in-sine">
-                                        <Image src={heroMain} layout='intrinsic' />
+                                        <Image alt='' src={heroMain} layout='intrinsic' />
                                     </div>
                                 </Box>
                             </Box>
                             <Box width='35%' position='absolute' zindex={4} top='50%' right='5%'>
                             <div data-aos='fade-up' data-aos-easing="ease-in-sine">
-                                <Image src={heroMain2} layout='intrinsic' />
+                                <Image alt='' src={heroMain2} layout='intrinsic' />
                                 </div>
                             </Box>
                             <Box width='60%' sx={{ m: '5%' }}>
                             <div data-aos='fade-up' data-aos-easing="ease-in-sine">
-                                <Image src={heroMain3} layout='intrinsic' zindex={6}  />
+                                <Image alt='' src={heroMain3} layout='intrinsic' zindex={6}  />
                                 </div>
                             </Box>
                             
@@ -134,12 +134,12 @@ export default function Home() {
                             
                             <Box width='28%' position='absolute' zIndex={2} top='0%' right='2%'>
                             <div data-aos='zoom-in' data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                                <Image src={heroComida1} layout='intrinsic' />
+                                <Image alt='' src={heroComida1} layout='intrinsic' />
                                 </div>
                             </Box>
                             <Box width='28%' position='absolute' zIndex={2} top='30%' right='80%'>
                             <div data-aos='zoom-in-right' data-aos-easing="ease-in-sine" data-aos-offset="300" data-aos-duration="1500">
-                                <Image src={heroComida2} layout='intrinsic' />
+                                <Image alt='' src={heroComida2} layout='intrinsic' />
                                 </div>
                             </Box>
                             
@@ -168,7 +168,7 @@ export default function Home() {
                             
                             <Box display='flex' justifyContent='space-around' width='80%' flexWrap='wrap' maxWidth='650px'>
                             {features.map(feature => (
-                                <div data-aos='zoom-in'>
+                                <div key={feature.nombre} data-aos='zoom-in'>
                                 <Box display='flex' justifyContent='center' flexWrap='wrap' width='200px' sx={{ my: 3 }}>
                                     <Box backgroundColor='primary.main' sx={{ p: 3, borderRadius: '20px' }}>
                                         {feature.icono}
@@ -196,7 +196,7 @@ export default function Home() {
                                 <Box width='180px'>
                                 <a href="https://instagram.com/bien_suave_ldm">
                                     <div data-aos='zoom-in'>
-                                        <Image src={negociosBienSuave} layout='intrinsic' />
+                                        <Image alt='' src={negociosBienSuave} layout='intrinsic' />
                                         
                                     </div>
                                     </a>      

@@ -61,7 +61,7 @@ const LandingCafeteria = () => {
             </Head>
             <Nav sinIniciar={true}/>
             <Box style={sectionStyle} >
-                <Image style={{ zIndex: 0, opacity: '30%' }} src={granos} layout="fill" objectFit="cover"/>
+                <Image alt='' style={{ zIndex: 0, opacity: '30%' }} src={granos} layout="fill" objectFit="cover"/>
                 <Box height='28vh' />
                 
                 <Box height='25vh' display='flex' alignItems='center'  justifyContent='center' flexWrap='wrap'>
@@ -119,7 +119,7 @@ const LandingCafeteria = () => {
                         <Card>
                             
                             <CardMedia height="140">
-                                <Image src={granos}/>
+                                <Image alt='' src={granos}/>
                             </CardMedia>
                             <CardContent>
                                 <Typography variant='h6' align='center'>Smootie preparado por los dioses</Typography>
@@ -141,7 +141,7 @@ const LandingCafeteria = () => {
                         <Card>
                             
                             <CardMedia height="140">
-                                <Image src={granos}/>
+                                <Image alt='' src={granos}/>
                             </CardMedia>
                             <CardContent>
                                 <Typography variant='h6' align='center'>Smootie preparado por los dioses</Typography>

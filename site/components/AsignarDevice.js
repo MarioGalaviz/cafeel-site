@@ -14,6 +14,7 @@ function AsignarDevice(props) {
         return () => {
             window.removeEventListener('resize', handleChangeWindowSize)
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleChangeWindowSize = (event) => {
