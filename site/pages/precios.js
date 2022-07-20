@@ -81,9 +81,6 @@ export default function Precios() {
                                             <Grid item xs={11}>
                                                 <Box minHeight='100px'>
                                                     <Typography align='center' variant='h6' color='text.secondary' sx={{ my: 2 }}>{plan.descripcion}</Typography>
-
-                                                   
-
                                                 </Box>
                                             </Grid>
                                             <Grid item xs={10} sx={{ my: 1 }}>
@@ -99,7 +96,7 @@ export default function Precios() {
                                             </Grid>
                                             <Grid item xs={9} sx={{ my: 1 }}>
                                                 {features.map(feature => (
-                                                    <Box>
+                                                    <Box key={feature.id}>
                                                         {plan.features.includes(feature.id) ?
                                                         <Box sx={{ my: 2 }} display='flex' key={feature.id}>
                                                             <Bullet color='primary.main'/>
@@ -111,25 +108,20 @@ export default function Precios() {
                                                             <Typography variant='h6' sx={{ mx: 1 }} color='text.secondary'>{feature.descipcion}</Typography>
                                                         </Box>}
                                                     </Box>
-                                                    
                                                 )) }
                                             </Grid>
-                                            
-
                                         </Grid>
-
                                     </Card>
                                 ))}
-                                
                             </Box>
                         </Grid>
-                        <Grid item xs={10} sx={{ my: 3 }}>
-                                                <Typography variant={device === 0 ? 'h4' : 'h3'} align='center'>¿Necesitas un plan personalizado?</Typography>
-                                            </Grid>
-                                            <Grid item xs={10} sx={{ my: 3 }}>
-                                                <Typography variant={device === 0 ? 'h5' : 'h4'} align='center'>Contáctanos:</Typography>
-                                                <Typography variant={device === 0 ? 'h6' : 'h4'} align='center'>contactocafeel@gmail.com</Typography>
-                                            </Grid>
+                            <Grid item xs={10} sx={{ my: 3 }}>
+                                <Typography variant={device === 0 ? 'h4' : 'h3'} align='center'>¿Necesitas un plan personalizado?</Typography>
+                            </Grid>
+                            <Grid item xs={10} sx={{ my: 3 }}>
+                                <Typography variant={device === 0 ? 'h5' : 'h4'} align='center'>Contáctanos:</Typography>
+                                <Typography variant={device === 0 ? 'h6' : 'h4'} align='center'>contactocafeel@gmail.com</Typography>
+                            </Grid>
                     </Grid>
                 </Box>
             </Box>
