@@ -88,7 +88,9 @@ export default function Precios() {
                                             </Grid>
                                             <Grid item xs={10} sx={{ my: 1 }}>
                                                 <Box display='flex' justifyContent='center'>
-                                                    <Button variant='contained'>Prueba gratuita</Button>
+                                                    <a href="https://app.cafeel.mx/cafeteria/signin">
+                                                        <Button variant='contained'>Prueba gratuita</Button>
+                                                    </a>
                                                 </Box>
                                             </Grid>
                                             <Grid item xs={10} sx={{ my: 3 }}>

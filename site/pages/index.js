@@ -230,7 +230,7 @@ export default function Home() {
                                 <Grid container justifyContent='center'>
                                     <Grid item xs={11}>
                                         <Box>
-                                            <Typography variant={device > 0 ? 'h3' : 'h4'} >Utiliza la tecnología más actual <Box fontWeight='bold' display='inline'>sin costos de instalación</Box></Typography>
+                                            <Typography variant={device > 0 ? 'h3' : 'h4'} >Utiliza la tecnología más avanzada <Box fontWeight='bold' display='inline'>sin costos de instalación</Box></Typography>
                                         </Box>
                                         <Box sx={{ my: 3 }} display='flex'>
                                             <Bullet color={'primary.main'}/>
