@@ -242,7 +242,7 @@ export default function Home() {
                                         </Box>
                                         <Box sx={{ my: 3 }} display='flex'>
                                             <Bullet color={'primary.main'}/>
-                                            <Typography variant='h6' sx={{ mx: 1 }}>Costo mensual entre $100 y $500 MXN ($5 - $25 USD)</Typography>
+                                            <Typography variant='h6' sx={{ mx: 1 }}>Costo mensual entre $0 y $500 MXN ($0 - $25 USD)</Typography>
                                         </Box>
                                         <div data-aos='fade-up'>
                                             <Box display='flex' sx={{ mt: 5 }} alignItems='center' flexWrap='wrap'>
