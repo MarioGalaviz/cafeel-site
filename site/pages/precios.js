@@ -110,8 +110,9 @@ export default function Precios() {
                                                     <Typography align='center' variant='h6' color='text.secondary' sx={{ my: 2 }}>{plan.descripcion}</Typography>
                                                 </Box>
                                             </Grid>
-                                            <Grid item xs={10} sx={{ my: 1 }}>
-                                                <Typography align='center' variant='h3' sx={{ my: 1 }}>${plan.costo}</Typography>
+                                            <Grid item xs={10} sx={{ my: 1 }} display='flex' justifyContent='center' alignItems='center'>
+                                                <Typography align='center' variant='h4' color='primary.main' sx={{ my: 1 }}>$</Typography>
+                                                <Typography align='center' variant='h3' sx={{ my: 1, fontWeight: 'bold' }}>{plan.costo}</Typography>
                                             </Grid>
                                             <Grid item xs={10} sx={{ my: 1 }}>
                                                 <Box display='flex' justifyContent='center'>
