@@ -24,7 +24,7 @@ const getProducts = (req, res) => {
     pool.query('SELECT productos.id_producto, productos.producto, productos.nombre_corto \
     AS prod_corto, categorias.id_categoria, productos.costo, categorias.categoria, \
     categorias.nombre_corto as cat_corto, cuenta.cuenta, productos.activo,\
-    productos.tamano, productos.addons \
+    productos.tamano, productos.addons, productos.nombre_comercial, productos.imagen, productos.descripcion \
     FROM productos \
     LEFT JOIN categorias ON productos.id_categoria = categorias.id_categoria \
     LEFT JOIN (SELECT id_producto, count(id_producto) AS cuenta FROM elementos WHERE id_cafeteria = $1 GROUP BY id_producto) cuenta on cuenta.id_producto = productos.id_producto \

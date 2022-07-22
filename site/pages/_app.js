@@ -8,6 +8,8 @@ import { store } from '../redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 import AsignarDevice from '../components/AsignarDevice';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 function MyApp({ Component, pageProps }) {
 
@@ -50,7 +52,7 @@ function MyApp({ Component, pageProps }) {
         if (jssStyles) {
           jssStyles.parentElement.removeChild(jssStyles);
         }
-
+        Aos.init({ duration: 1200 })
     }, []);
 
 

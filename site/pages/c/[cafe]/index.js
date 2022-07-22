@@ -61,7 +61,7 @@ const LandingCafeteria = () => {
             </Head>
             <Nav sinIniciar={true}/>
             <Box style={sectionStyle} >
-                <Image alt='' style={{ zIndex: 0, opacity: '30%' }} src={granos} layout="fill" objectFit="cover"/>
+                {/* <Image alt='' style={{ zIndex: 0, opacity: '30%' }} src={granos} layout="fill" objectFit="cover"/> */}
                 <Box height='28vh' />
                 
                 <Box height='25vh' display='flex' alignItems='center'  justifyContent='center' flexWrap='wrap'>

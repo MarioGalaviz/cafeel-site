@@ -23,8 +23,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 import { useSelector } from 'react-redux'
 import { selectDevice } from '../redux/sliceSesion/sesionSlice'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+
 import { useEffect } from 'react'
 import { BsGraphUp, BsWhatsapp } from 'react-icons/bs'
 import { RiHandHeartFill } from 'react-icons/ri'
@@ -77,7 +76,7 @@ export default function Home() {
     ]
 
     useEffect(() => {
-        Aos.init({ duration: 1200 })
+        // Aos.init({ duration: 1200 })
     }, [])
 
     return (
@@ -242,7 +241,7 @@ export default function Home() {
                                         </Box>
                                         <Box sx={{ my: 3 }} display='flex'>
                                             <Bullet color={'primary.main'}/>
-                                            <Typography variant='h6' sx={{ mx: 1 }}>Costo mensual entre $0 y $500 MXN ($0 - $25 USD)</Typography>
+                                            <Typography variant='h6' sx={{ mx: 1 }}>Costo mensual entre $0 y $500 MXN ($0 a $25 USD)</Typography>
                                         </Box>
                                         <div data-aos='fade-up'>
                                             <Box display='flex' sx={{ mt: 5 }} alignItems='center' flexWrap='wrap'>
