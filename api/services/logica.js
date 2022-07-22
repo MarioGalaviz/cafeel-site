@@ -31,7 +31,7 @@ const getProducts = (req, res) => {
     WHERE productos.id_cafeteria = $1 AND productos.borrado IS NOT TRUE ' + filtro + ' \
     ORDER BY cuenta.cuenta DESC', [req.body.id], (error, results) => {
         if (error) {
-            throw error
+            res.status(500).json({message: error.message})
         }
         const productos = results.rows
 
@@ -44,7 +44,7 @@ const getProducts = (req, res) => {
         GROUP BY categorias.id_categoria\
         ORDER BY cuenta DESC', [req.body.id], (error, results) => {
             if (error) {
-                throw error
+                res.status(500).json({message: error.message})
             }
 
             const categorias = results.rows
@@ -52,7 +52,7 @@ const getProducts = (req, res) => {
             pool.query('SELECT * FROM tamanos WHERE id_cafeteria = $1 AND borrado IS NOT TRUE',
             [req.body.id], (error, results) => {
                 if (error) {
-                    throw error
+                    res.status(500).json({message: error.message})
                 }
                 res.status(200).json({productos, categorias, tamanos: results.rows})
             })
